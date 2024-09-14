@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to My Portfolio</h1>
+            <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo">
+            <p class="summary">Hi, I'm a passionate web developer with expertise in building responsive and interactive websites. I specialize in front-end development using HTML, CSS, and JavaScript.</p>
+            <button id="aboutMeBtn">About Me</button>
+        </div>
+    </header>
+
+    <section id="aboutMe" class="hidden">
+        <div class="container">
+            <h2>About Me</h2>
+            <p id="aboutMeContent"></p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 20px 0;
+}
+
+.summary {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+button {
+    background-color: #f4f4f4;
+    border: none;
+    color: #333;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+#aboutMe {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+}
+
+#aboutMeContent {
+    font-size: 1.1em;
+}
+
+.hidden {
+    display: none;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const aboutMeBtn = document.getElementById('aboutMeBtn');
+    const aboutMeSection = document.getElementById('aboutMe');
+    const aboutMeContent = document.getElementById('aboutMeContent');
+
+    aboutMeBtn.addEventListener('click', function() {
+        if (aboutMeSection.classList.contains('hidden')) {
+            aboutMeSection.classList.remove('hidden');
+            aboutMeContent.innerHTML = `
+                <strong>Background:</strong> I have always been fascinated by technology and design. My journey in web development started with simple HTML and CSS projects. Over the years, I've honed my skills and worked on various projects.
+                <br><br>
+                <strong>Education:</strong> I hold a Bachelor's degree in Computer Science from XYZ University. My coursework focused on software development, algorithms, and web technologies.
+                <br><br>
+                <strong>Professional Experience:</strong> I have worked as a web developer for over 3 years at ABC Company, where I have been involved in designing and implementing user-friendly websites and web applications. My experience includes working with JavaScript frameworks like React and Vue.js.
+            `;
+        } else {
+            aboutMeSection.classList.add('hidden');
+            aboutMeContent.innerHTML = '';
+        }
+    });
+});
